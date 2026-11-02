@@ -1,0 +1,276 @@
+@import "tailwindcss";
+
+/*
+  Design tokens.
+  Theme is always set on <html data-theme="light|dark"> by the init script in layout.tsx:
+  "/" opens light, "/terminal" opens dark, and the toggle overrides either.
+  The media query below only applies if JavaScript is off.
+*/
+:root {
+  --bg: #ecede8;
+  --bg-2: #e1e3dc;
+  --fg: #121412;
+  --muted: #5e625c;
+  --line: #c9ccc3;
+  --accent: #2233f0;
+  --accent-soft: rgba(34, 51, 240, 0.12);
+  --warn: #c2410c;
+  --ok: #16a34a;
+  --f-display: var(--font-big-shoulders), "Oswald", "Arial Narrow", Impact, sans-serif;
+  --f-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #101210;
+  --bg-2: #181a18;
+  --fg: #d9dbd5;
+  --muted: #8a8e86;
+  --line: #2a2d29;
+  --accent: #7c88ff;
+  --accent-soft: rgba(124, 136, 255, 0.14);
+  --warn: #fb923c;
+  --ok: #22c55e;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bg: #101210;
+    --bg-2: #181a18;
+    --fg: #d9dbd5;
+    --muted: #8a8e86;
+    --line: #2a2d29;
+    --accent: #7c88ff;
+    --accent-soft: rgba(124, 136, 255, 0.14);
+    --warn: #fb923c;
+    --ok: #22c55e;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-warn: var(--warn);
+  --color-ok: var(--ok);
+
+  --font-display: var(--f-display);
+  --font-sans: var(--f-sans);
+  --font-mono: var(--f-mono);
+
+  --animate-pulse-ring: pulse-ring 2s infinite;
+
+  /* Header switches from mobile menu to full nav here */
+  --breakpoint-nav: 56.25rem;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 var(--accent-soft); }
+  70% { box-shadow: 0 0 0 8px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+@layer base {
+  html { scroll-padding-top: 110px; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--f-sans);
+    font-size: 15px;
+    line-height: 1.55;
+    transition: background-color 0.3s, color 0.3s;
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  h1, h2, h3 { text-wrap: balance; }
+}
+
+@layer components {
+  /* Side gutter that also clears phone safe areas */
+  .gutter {
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  .label {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+  }
+
+  .display {
+    font-family: var(--f-display);
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-family: var(--f-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.85;
+    font-size: clamp(52px, 9vw, 140px);
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    font: 500 10px/1.4 var(--f-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    color: var(--muted);
+  }
+  .pill-live { color: var(--accent); border-color: var(--accent); }
+  .pill-wip, .pill-upcoming { color: var(--warn); border-color: var(--warn); }
+  .pill-work { color: var(--fg); border-color: var(--fg); }
+
+  .chip {
+    border: 1px solid var(--line);
+    color: var(--fg);
+    font: 12px var(--f-mono);
+    padding: 4px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    background: none;
+  }
+  .chip:hover, .chip[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 2px;
+    font: 500 12px var(--f-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: 1px solid var(--fg);
+    color: var(--fg);
+    cursor: pointer;
+  }
+  .btn-solid { background: var(--fg); color: var(--bg); }
+  .btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .text-link {
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .text-link:hover { color: var(--accent); border-color: var(--accent); }
+
+  .pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--accent);
+    animation: var(--animate-pulse-ring);
+  }
+
+  /* ---------- Placeholder artwork for project cards ---------- */
+  .ph { position: absolute; inset: 0; }
+  .ph::before, .ph::after { content: ""; position: absolute; }
+
+  .ph-rank { background: linear-gradient(160deg, #0b1220, #15233f); }
+  .ph-rank::before {
+    content: "Group savings\A\20A6 2,450,000.00";
+    white-space: pre;
+    left: 7%; top: 26%; width: 50%;
+    padding: 16px 18px 48px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    color: #e8eefc;
+    font: 600 clamp(12px, 1.7vw, 22px)/1.5 var(--f-sans);
+  }
+  .ph-rank::after {
+    right: 7%; bottom: 16%; width: 30%; height: 56%;
+    background:
+      linear-gradient(#3b82f6, #3b82f6) 0% 100% / 18% 40% no-repeat,
+      linear-gradient(#60a5fa, #60a5fa) 33% 100% / 18% 62% no-repeat,
+      linear-gradient(#93c5fd, #93c5fd) 66% 100% / 18% 50% no-repeat,
+      linear-gradient(#22c55e, #22c55e) 100% 100% / 18% 88% no-repeat;
+  }
+
+  .ph-plant { background: linear-gradient(160deg, #0f2418, #1d3b27); }
+  .ph-plant::before {
+    left: 50%; top: 56%; width: 46%; aspect-ratio: 1;
+    translate: -50% -50%;
+    border: 1px solid rgba(190, 255, 200, 0.4);
+    border-radius: 50%;
+    background: radial-gradient(ellipse 18% 34% at 50% 50%, #7fd18f, #2f7a45 70%, transparent 72%);
+  }
+  .ph-plant::after {
+    content: "search: ewuro";
+    left: 50%; top: 16%; translate: -50% 0; margin-top: 14px;
+    font: 11px var(--f-mono);
+    color: #cfe9d4;
+    border: 1px solid rgba(190, 255, 200, 0.35);
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+
+  .ph-maison { background: #f3ece2; }
+  .ph-maison::before {
+    left: 6%; top: 18%; width: 42%; height: 70%;
+    border-radius: 4px;
+    background: linear-gradient(#c7a27a, #8d6a4b);
+  }
+  .ph-maison::after {
+    right: 6%; top: 18%; width: 42%; height: 70%;
+    border-radius: 4px;
+    background:
+      linear-gradient(90deg, rgba(80, 110, 90, 0.18) 1px, transparent 1px) 0 0 / 14px 14px,
+      linear-gradient(rgba(80, 110, 90, 0.18) 1px, transparent 1px) 0 0 / 14px 14px,
+      radial-gradient(circle at 55% 45%, #d14b2f 0 5px, transparent 6px),
+      #e5e9dc;
+  }
+
+  .ph-space {
+    background:
+      radial-gradient(circle at 70% 60%, #2a3b6e 0 18%, transparent 19%),
+      radial-gradient(circle at 70% 60%, rgba(140, 160, 255, 0.25) 0 26%, transparent 27%),
+      linear-gradient(160deg, #05070f, #0d1430);
+  }
+  .ph-space::before {
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, #fff, transparent),
+      radial-gradient(1px 1px at 40% 80%, #fff, transparent),
+      radial-gradient(1px 1px at 85% 20%, #fff, transparent),
+      radial-gradient(1px 1px at 55% 15%, #fff, transparent),
+      radial-gradient(1px 1px at 10% 70%, #fff, transparent);
+  }
+  .ph-space::after {
+    content: "SPACE";
+    left: 8%; top: 38%;
+    font: 900 clamp(30px, 5vw, 64px)/1 var(--f-display);
+    color: #e7ebff;
+    letter-spacing: 0.05em;
+  }
+
+  .ph-generic { background: repeating-linear-gradient(135deg, var(--bg-2) 0 10px, var(--accent-soft) 10px 11px); }
+
+  .leaf-icon {
+    background:
+      radial-gradient(ellipse 22% 38% at 50% 52%, #7fd18f, #2f7a45 70%, transparent 72%),
+      linear-gradient(160deg, #0f2418, #1d3b27);
+  }
+
+  .stripes { background: repeating-linear-gradient(135deg, transparent 0 10px, var(--accent-soft) 10px 11px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
