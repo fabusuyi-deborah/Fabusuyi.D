@@ -1,5 +1,4 @@
 /** Small window events so distant components (footer, shortcuts) can open header menus. */
-export const OPEN_BUILDING = "portfolio:open-building";
 export const TOGGLE_BUILDING = "portfolio:toggle-building";
 export const OPEN_MENU = "portfolio:open-menu";
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { building } from "@/content/building";
-import { OPEN_BUILDING, TOGGLE_BUILDING } from "@/lib/events";
+import { TOGGLE_BUILDING } from "@/lib/events";
 import { BuildingIcon } from "../BuildingIcon";
 
 /** Desktop "Building" dropdown in the header nav. */
@@ -13,25 +13,24 @@ export function BuildingMenu() {
   const panelId = useId();
 
   useEffect(() => {
-    const onOpen = () => setOpen(true);
     const onToggle = () => setOpen((o) => !o);
     const onDocClick = (e: MouseEvent) => {
-      if (rootRef.current && !rootRef.current.contains(e.target as Node)) setOpen(false);
+      const target = e.target as Element;
+      if (target.closest("[data-building-trigger]")) return;
+      if (rootRef.current && !rootRef.current.contains(target)) setOpen(false);
     };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setOpen((o) => {
-          if (o) buttonRef.current?.focus();
+          if (o) buttonRef.current?.focus({ preventScroll: true });
           return false;
         });
       }
     };
-    window.addEventListener(OPEN_BUILDING, onOpen);
     window.addEventListener(TOGGLE_BUILDING, onToggle);
     document.addEventListener("click", onDocClick);
     document.addEventListener("keydown", onKey);
     return () => {
-      window.removeEventListener(OPEN_BUILDING, onOpen);
       window.removeEventListener(TOGGLE_BUILDING, onToggle);
       document.removeEventListener("click", onDocClick);
       document.removeEventListener("keydown", onKey);
@@ -45,10 +44,7 @@ export function BuildingMenu() {
         type="button"
         aria-expanded={open}
         aria-controls={panelId}
-        onClick={(e) => {
-          e.stopPropagation();
-          setOpen((o) => !o);
-        }}
+        onClick={() => setOpen((o) => !o)}
         className="inline-flex cursor-pointer items-center gap-1.5 hover:text-accent"
       >
         <kbd className="mr-1.5 font-mono text-[10px] text-muted">B</kbd>

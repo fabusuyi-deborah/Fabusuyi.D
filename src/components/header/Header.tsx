@@ -22,7 +22,6 @@ export function Header() {
 
   return (
     <header
-      id="top"
       className="sticky top-[env(safe-area-inset-top,0px)] z-20 grid grid-cols-[1fr_auto] items-center gap-4 bg-bg py-4.5 text-sm leading-[1.35] nav:grid-cols-[1fr_1fr_1fr_auto] nav:items-start"
     >
       <Link href="/" aria-label={`${site.name}, home`} className="display text-[26px] leading-none tracking-[0.02em] no-underline">
