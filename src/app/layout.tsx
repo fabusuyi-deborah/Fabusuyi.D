@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { site } from "@/content/site";
+import { Header } from "@/components/header/Header";
+import { Shortcuts } from "@/components/Shortcuts";
 import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
@@ -63,7 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <div className="mx-auto max-w-[1440px]">
+        <div className="mx-auto max-w-360">
           <Header />
           <div id="main">{children}</div>
         </div>
