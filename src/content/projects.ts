@@ -14,6 +14,7 @@ export const projects: Project[] = [
     tags: ["React", "TypeScript", "Tailwind", "RTK Query"],
     displayUrl: "rank · dashboard",
     note: "Internal product · private code",
+    image: "/images/projects/rank.png",
     placeholder: "rank",
   },
   {
@@ -27,20 +28,8 @@ export const projects: Project[] = [
     displayUrl: "plant-lens-beta.vercel.app",
     liveUrl: "https://plant-lens-beta.vercel.app/",
     codeUrl: "https://github.com/fabusuyi-deborah/PlantLens",
+    image: "/images/projects/plant-lens.png",
     placeholder: "plant",
-  },
-  {
-    id: "maison",
-    title: "Maison Soleil",
-    repo: "Maison-Guest-house",
-    status: "live",
-    description:
-      "A booking-confirmation challenge grown into a guest portal: live weather, a recipe-powered breakfast guide, an OpenStreetMap map of nearby places, and persistent chat.",
-    tags: ["React", "TypeScript", "React Router", "MapLibre GL"],
-    displayUrl: "maison-soleil.app",
-    liveUrl: "https://maison-guest-house-l15c.vercel.app/",
-    codeUrl: "https://github.com/fabusuyi-deborah/Maison-Guest-house",
-    placeholder: "maison",
   },
   {
     id: "space",
@@ -53,7 +42,22 @@ export const projects: Project[] = [
     displayUrl: "space-travel-tourism.app",
     liveUrl: "https://space-travel-tourism-three.vercel.app/",
     codeUrl: "https://github.com/fabusuyi-deborah/Space-travel-tourism",
+    image: "/images/projects/space.png",
     placeholder: "space",
+  },
+  {
+    id: "maison",
+    title: "Maison Soleil",
+    repo: "Maison-Guest-house",
+    status: "live",
+    description:
+      "A booking-confirmation challenge grown into a guest portal: live weather, a recipe-powered breakfast guide, an OpenStreetMap map of nearby places, and persistent chat.",
+    tags: ["React", "TypeScript", "React Router", "MapLibre GL"],
+    displayUrl: "maison-soleil.app",
+    liveUrl: "https://maison-guest-house-l15c.vercel.app/",
+    codeUrl: "https://github.com/fabusuyi-deborah/Maison-Guest-house",
+    image: "/images/projects/maison.png",
+    placeholder: "maison",
   },
 ];
 
