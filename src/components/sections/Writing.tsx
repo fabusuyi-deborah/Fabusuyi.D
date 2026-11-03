@@ -11,7 +11,7 @@ export function Writing() {
           <span className="flex flex-wrap gap-4">
             {writingProfiles.map((p) => (
               <a key={p.label} className="label no-underline hover:text-accent" href={p.url} target="_blank" rel="noopener noreferrer">
-                All on {p.label} ↗
+                 {p.label} ↗
               </a>
             ))}
           </span>

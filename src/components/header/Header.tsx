@@ -31,7 +31,7 @@ export function Header() {
       </Link>
 
       <div className="hidden nav:block">
-        Based in {site.location}
+         {site.location}
         <br />
         <Clock className="font-mono text-xs tracking-[0.04em]" />{" "}
         <span className="font-mono text-xs text-muted">{site.timeZoneLabel}</span>

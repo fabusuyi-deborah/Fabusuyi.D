@@ -6,27 +6,29 @@ import type { BuildingProject } from "./types";
  */
 export const building: BuildingProject[] = [
   {
-    id: "project-1",
-    title: "Project one",
-    stage: "",
+    id: "plantlens",
+    title: "PlantLens",
+    stage: "v1 live",
     description:
-      ".",
-    liveUrl: "",
-    codeUrl: "",
-    leafIcon: true,
+      "Search African medicinal and food plants by common, scientific or local name (Yoruba, Igbo, Hausa, Swahili, Twi, Fula), with cited traditional uses and cautions.",
+    liveUrl: "https://plant-lens-beta.vercel.app/",
+    codeUrl: "https://github.com/fabusuyi-deborah/PlantLens",
+    icon: "/images/projects/plant-lens.png",
   },
   {
     // PLACEHOLDER: replace with my second project
-    id: "project-2",
-    title: "Project two",
+    id: "nudge",
+    title: "Nudge",
     stage: "Incubating",
     description: "Name and details coming soon.",
+    locked: true,
   },
   {
     // PLACEHOLDER: replace with my third project
-    id: "project-3",
-    title: "Project three",
+    id: "trellis",
+    title: "Trellis",
     stage: "Incubating",
     description: "Name and details coming soon.",
+    locked: true,
   },
 ];

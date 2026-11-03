@@ -31,6 +31,7 @@ export interface BuildingProject {
   codeUrl?: string;
   icon?: string;
   leafIcon?: boolean;
+  locked?: boolean;
 }
 
 export type WritingPlatform = "Hashnode" | "Dev.to" | "Medium" | "Other";

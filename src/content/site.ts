@@ -50,7 +50,7 @@ export const about = {
 /** Shown in the footer and by `cat now.md` in the console */
 export const now = [
   "Shipping features at Rank Capital",
-  "Expanding Project 1 across Africa",
+  "Expanding plantlens  across Africa",
   "Learning NestJS on the side",
 ];
 

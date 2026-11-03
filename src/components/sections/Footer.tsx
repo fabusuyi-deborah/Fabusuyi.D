@@ -1,4 +1,3 @@
-import { cacheLife } from "next/cache";
 import Link from "next/link";
 import { navSections, now, site, socials } from "@/content/site";
 import { CONSOLE_PATH } from "@/lib/theme";
@@ -9,9 +8,7 @@ import { FittedWordmark } from "./FittedWordmark";
 const linkClass = "inline-flex items-baseline gap-1.5 no-underline hover:text-accent";
 const arrow = "font-mono text-[11px] text-muted";
 
-async function CurrentYear() {
-  "use cache";
-  cacheLife("days");
+function CurrentYear() {
   return new Date().getFullYear();
 }
 
@@ -48,7 +45,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="min-w-0">
+        <div className="col-span-full min-w-0 nav:col-span-1">
           <span className="label">Now</span>
           <ul className="mt-3.5 flex flex-col gap-2 text-[15px] text-muted">
             {now.map((n) => (
@@ -60,7 +57,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="min-w-0">
+        <div className="col-span-full min-w-0 nav:col-span-1">
           <span className="label">Local time · Lagos</span>
           <Clock className="display mt-3 mb-1.5 block text-[clamp(44px,5vw,72px)] leading-none font-extrabold tracking-[0.01em] tabular-nums" />
           <TimeDifference className="m-0 font-mono text-xs text-muted" />

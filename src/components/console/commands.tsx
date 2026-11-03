@@ -53,7 +53,7 @@ export const commands: Record<string, Command> = {
         {site.name} <M>({site.handle})</M>
         {"\n"}role      {site.roleLong.toLowerCase()}
         {"\n"}at        {site.company} <M>({site.companyNote})</M>
-        {"\n"}based     Ibadan, NG <M>· UTC+{site.utcOffset}</M>
+        {"\n"}  Lagos, NG <M>· UTC+{site.utcOffset}</M>
         {site.openToWork && (
           <>
             {"\n"}status    <P>● open to work</P>

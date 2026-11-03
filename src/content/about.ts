@@ -12,12 +12,12 @@ export const timeline: TimelineEntry[] = [
  * Tiles without `src` show a striped placeholder.
  */
 export const photos: Photo[] = [
-  { category: "speaking", size: "big", title: "On stage at DevFest Ilorin", caption: "GDG Ilorin · 2026" },
-  { category: "speaking", title: "Speaking at a community event", caption: "Community", src:"/images/projects/speaking1.png", alt:"image of Deborah speaking" },
-  { category: "events", title: "She Code Africa Summit", caption: "Lagos · 2026", src:"/images/projects/debby-sca.png", alt:"image of Deborah" },
-  { category: "events", size: "wide", title: "Meetups & hackathons", caption: "Community" },
-  { category: "life", title: "Team day at Rank Capital", caption: "Work" },
-  { category: "life", title: "Over the chessboard", caption: "Off the clock" },
+  { category: "speaking", size: "big", title: "DevFest Ilorin", caption: "GDG Ilorin · 2026", src:"/images/photos/speaker_dee.png"},
+  { category: "speaking", title: "Speaking at a community event", caption: "Community", src:"/images/photos/speaking1.png", alt:"image of Deborah speaking" },
+  { category: "events", title: "She Code Africa Summit", caption: "Lagos · 2026", src:"/images/photos/debby-sca.png", alt:"image of Deborah" },
+  { category: "events", size: "wide", title: "Meetups & hackathons", caption: "Community", src:"/images/photos/meetups.jpeg"},
+  { category: "life", title: "Reading", caption: "Off the clock", src:"/images/photos/books.jpeg"},
+  { category: "life", title: "Over the chessboard", caption: "Off the clock", src:"/images/photos/chess.jpeg" },
 ];
 
 export const talks: Talk[] = [
@@ -34,5 +34,6 @@ export const talks: Talk[] = [
     description: "Delivered as a visual carousel for a programme for young girls.",
     status: "format",
     badge: "Carousel",
+    url: "https://drive.google.com/drive/folders/16ZMdp7JsLnBykOnf02xginFhcILGMuNE?usp=sharing",
   },
 ];
