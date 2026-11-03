@@ -44,7 +44,7 @@ export const about = {
     "I came into tech through self-directed learning after a degree in plant biology. That background still shows: I like systems, careful observation, and writing things down so the next person can reproduce them.",
     "I'm growing into developer advocacy through writing, speaking and community work. Off the clock I'm reading, or losing at chess.",
   ],
-  stack: ["React", "TypeScript", "Next.js", "Tailwind CSS", "RTK Query", "Framer Motion", "Tanstack Query", "Git"],
+  stack: ["React", "TypeScript", "Next.js", "Tailwind CSS", "RTK Query", "Framer Motion", "Tanstack Query", "Git", "Node.js", "Express.js"],
 };
 
 /** Shown in the footer and by `cat now.md` in the console */

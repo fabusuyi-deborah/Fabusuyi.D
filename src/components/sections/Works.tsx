@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { projects, statusLabel } from "@/content/projects";
 import type { Project } from "@/content/types";
 import { Section, SectionHead } from "./SectionHead";
@@ -41,7 +42,11 @@ function WorkCard({ project: p }: { project: Project }) {
         <span className={`pill pill-${p.status}`}>{statusLabel[p.status]}</span>
       </div>
 
-      <div className="relative aspect-16/10 max-w-full overflow-hidden rounded bg-[#111] transition-transform duration-500 ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-[.985]">
+      <Preview
+        href={p.liveUrl}
+        label={`Open ${p.title} live site`}
+        className="relative block aspect-16/10 max-w-full overflow-hidden rounded bg-[#111] transition-transform duration-500 ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-[.985]"
+      >
         {p.image ? (
           <Image
             src={p.image}
@@ -59,7 +64,7 @@ function WorkCard({ project: p }: { project: Project }) {
           <i className="size-1.5 rounded-full bg-white/35" />
           <span className="ml-2.5 font-mono text-[10px] text-white/60">{p.displayUrl}</span>
         </div>
-      </div>
+      </Preview>
 
       <h3 className="display m-0 text-[clamp(28px,2.6vw,40px)] leading-none font-extrabold">{p.title}</h3>
       <p className="m-0 max-w-[60ch] text-muted">{p.description}</p>
@@ -85,5 +90,14 @@ function WorkCard({ project: p }: { project: Project }) {
         )}
       </div>
     </article>
+  );
+}
+
+function Preview({ href, label, className, children }: { href?: string; label: string; className: string; children: ReactNode }) {
+  if (!href) return <div className={className}>{children}</div>;
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className={className}>
+      {children}
+    </a>
   );
 }

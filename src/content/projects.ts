@@ -11,8 +11,9 @@ export const projects: Project[] = [
     status: "work",
     description:
       "Frontend work at Rank (formerly Moni Africa), a Y Combinator-backed Nigerian fintech helping communities and traders save, invest and access capital.",
-    tags: ["React", "TypeScript", "Tailwind", "RTK Query"],
+    tags: ["Next.js", "TypeScript", "Tailwind", "RTK Query"],
     displayUrl: "rank · dashboard",
+    liveUrl: "https://www.userank.com/",
     note: "Internal product · private code",
     image: "/images/projects/rank.png",
     placeholder: "rank",

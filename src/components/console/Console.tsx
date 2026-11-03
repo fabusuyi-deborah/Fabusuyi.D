@@ -65,9 +65,9 @@ export function Console() {
   useEffect(() => {
     if (booted.current) return;
     booted.current = true;
-    print(<M>Last login: {new Date().toDateString()} on ttys001</M>);
+    print(<M>Last login: {new Date().toDateString()}</M>);
     print(<>{site.name.split(" ")[0]}<br />{site.name.split(" ").slice(1).join(" ")}</>, true);
-    print(<M>{site.roleLong.toLowerCase()} · Ibadan, NG</M>);
+    print(<M>{site.roleLong.toLowerCase()} · Lagos, NG</M>);
     print(<><M>type</M> <K>help</K> <M>for commands, or tap one below.</M>{"\n"}</>);
     run("whoami");
     inputRef.current?.focus({ preventScroll: true });
@@ -107,7 +107,7 @@ export function Console() {
             <i className="size-2.25 rounded-full bg-line" />
             <i className="size-2.25 rounded-full bg-line" />
           </span>
-          <span className="truncate">deborah@ibadan: ~/portfolio</span>
+          <span className="truncate">deborah: ~/portfolio</span>
           <span>zsh</span>
         </div>
 

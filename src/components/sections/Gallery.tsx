@@ -13,14 +13,17 @@ const filters: { id: "all" | PhotoCategory; label: string }[] = [
 ];
 
 const sizeClass = {
-  big: "col-span-2 sm:row-span-2",
+  big: "col-span-2 sm:row-span-3",
   wide: "col-span-2",
   normal: "",
 } as const;
 
 export function Gallery() {
   const [filter, setFilter] = useState<"all" | PhotoCategory>("all");
-  const shown = photos.filter((p) => filter === "all" || p.category === filter);
+  // Life photos live under Events: they keep their "life" tag but show with the events.
+  const shown = photos.filter(
+    (p) => filter === "all" || p.category === filter || (filter === "events" && p.category === "life"),
+  );
 
   return (
     <div>
