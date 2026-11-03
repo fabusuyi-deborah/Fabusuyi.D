@@ -10,7 +10,7 @@ export const projects: Project[] = [
     repo: "rank",
     status: "work",
     description:
-      "Product work at Rank (formerly Moni Africa), a Y Combinator-backed Nigerian fintech. Rank helps communities, cooperatives and traders save together, invest and access capital. I build and maintain features across the stack.",
+      "Frontend work at Rank (formerly Moni Africa), a Y Combinator-backed Nigerian fintech helping communities and traders save, invest and access capital.",
     tags: ["React", "TypeScript", "Tailwind", "RTK Query"],
     displayUrl: "rank · dashboard",
     note: "Internal product · private code",
