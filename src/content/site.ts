@@ -13,7 +13,7 @@ export const site = {
   openToWork: true,
   email: "fabusuyideborah03@gmail.com",
   resume: "/deborah-fabusuyi.pdf",
-  url: "https://fabusuyi-d.pages.dev/",
+  url: "https://dherrbie.pages.dev/",
   tagline: "building products people rely on, and writing about how they work.",
   intro:
     "Hi, I'm Deborah. I build clean, responsive products with React and TypeScript, and I document them so other people can use them too.",
