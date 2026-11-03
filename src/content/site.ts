@@ -18,7 +18,7 @@ export const site = {
   intro:
     "Hi, I'm Deborah. I build clean, responsive products with React and TypeScript, and I document them so other people can use them too.",
   description:
-    "Deborah Fabusuyi is a frontend engineer and technical writer in Ibadan, Nigeria, building with React, Next.js and TypeScript.",
+    "Deborah Fabusuyi is a frontend engineer and technical writer, building with React, Next.js and TypeScript.",
   activeYears: "2024 — 2026",
   version: "v3.0",
 } as const;
@@ -42,7 +42,7 @@ export const about = {
   lead: "I'm a frontend engineer and technical writer. I build interfaces people can rely on, from fintech dashboards to plant databases, then write the docs that explain them.",
   paragraphs: [
     "I came into tech through self-directed learning after a degree in plant biology. That background still shows: I like systems, careful observation, and writing things down so the next person can reproduce them.",
-    "I'm growing into developer advocacy through writing, speaking and community work. Off the clock I'm reading, or losing at chess.",
+    "I'm growing into product engineering and developer advocacy, building products and sharing what I learn through writing, speaking and community work. Off the clock I'm reading, or losing at chess.",
   ],
   stack: ["React", "TypeScript", "Next.js", "Tailwind CSS", "RTK Query", "Framer Motion", "Tanstack Query", "Git", "Node.js", "Express.js"],
 };
