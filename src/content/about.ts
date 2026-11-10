@@ -25,8 +25,9 @@ export const talks: Talk[] = [
     when: "DevFest Ilorin · 2026",
     title: "Becoming a Product Engineer: why “dev” and everything else is blurring",
     description: "GDG Ilorin. For developers at every level, plus curious non-devs.",
-    status: "upcoming",
-    badge: "Upcoming",
+    status: "format",
+    badge: "Talk",
+    url: "https://docs.google.com/presentation/d/1-rATJTR9Ix66Q299C8tsdhIloZ9qzLcj/edit?usp=sharing&ouid=103459211547063244222&rtpof=true&sd=true",
   },
   {
     when: "Girls in Tech · 2026",
